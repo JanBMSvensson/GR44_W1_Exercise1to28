@@ -55,7 +55,15 @@ namespace GR44_W1_Exercise1to28.CardClasses
         {
             get
             {
-                return Value switch
+                return Suit switch
+                {
+                    CardSuit.Spades => "♠",
+                    CardSuit.Harts => "♥",
+                    CardSuit.Diamonds => "♦",
+                    CardSuit.Clubs => "♣",
+                    _ => throw new Exception("2938745628973")
+                } +
+                Value switch
                 {
                     2 => "2",
                     3 => "3",
@@ -71,7 +79,7 @@ namespace GR44_W1_Exercise1to28.CardClasses
                     13 => "K",
                     14 => "A",
                     _ => throw new NotImplementedException()
-                } + Suit.ToString().Substring(0, 2).ToLower(); 
+                };
             }
         }
 

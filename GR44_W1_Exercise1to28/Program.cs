@@ -29,6 +29,8 @@ namespace GR44_W1_Exercise1to28
 
         static void Main(string[] args)
         {
+            OutputEncoding = System.Text.Encoding.UTF8;
+
             List<Exercise> Exercises = new(new Exercise[] { Ex01, Ex02, Ex03, Ex04, Ex05, Ex06, Ex07, Ex08, Ex09, Ex10,
                                                             Ex11, Ex12, Ex13, Ex14, Ex15, Ex16, Ex17, Ex18, Ex19, Ex20,
                                                             Ex21, Ex22, Ex23, Ex24, Ex25, Ex26, Ex27, Ex28 });
@@ -720,7 +722,7 @@ namespace GR44_W1_Exercise1to28
             WriteLine("Deck\t" + String.Join(" ", deckOfCards.CardShortNames()));
 
             deckOfCards.Shuffle();
-            WriteLine("Shuffled\t" + String.Join(" ", deckOfCards.CardShortNames()));
+            WriteLine("Shuffle\t" + String.Join(" ", deckOfCards.CardShortNames()));
 
             gameBoard.DealCards(deckOfCards);
 
