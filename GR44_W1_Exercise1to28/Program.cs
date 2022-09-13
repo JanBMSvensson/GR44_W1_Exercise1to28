@@ -725,6 +725,7 @@ namespace GR44_W1_Exercise1to28
             WriteLine("Shuffle\t" + String.Join(" ", deckOfCards.CardShortNames()));
 
             gameBoard.DealCards(deckOfCards);
+            gameBoard.Hands.North.Sort();
 
             WriteDeckInfo(CardinalDirection.North);
             WriteDeckInfo(CardinalDirection.East);
@@ -736,7 +737,7 @@ namespace GR44_W1_Exercise1to28
             void WriteDeckInfo(CardinalDirection player)
             {
                 var hand = gameBoard.Hands.Hand(player);
-                WriteLine($"{player.ToString()}\t{String.Join(" ", hand.CardShortNames())}  HP {hand.HP} {hand.DistributionType}");
+                WriteLine($"{player.ToString()}\t{String.Join("", hand.CardShortNames())}  HP {hand.HP} {hand.DistributionType}");
             }
         
         }

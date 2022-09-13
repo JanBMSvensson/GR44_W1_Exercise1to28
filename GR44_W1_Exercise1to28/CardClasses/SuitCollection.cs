@@ -14,6 +14,38 @@ namespace GR44_W1_Exercise1to28.CardClasses
             Suit = suit;
         }
 
+        public string SuitLabel
+        {
+            get
+            {
+                return Suit switch
+                {
+                    CardSuit.Spades => "♠",
+                    CardSuit.Harts => "♥",
+                    CardSuit.Diamonds => "♦",
+                    CardSuit.Clubs => "♣",
+                    _ => throw new Exception("2938745628973")
+                };
+            }
+        }
+
+
+        public new string[] CardShortNames()
+        {
+            List<string> strings = new List<string>();
+            if (this.Count > 0)
+                strings.Add(SuitLabel);
+
+            foreach (Card card in this)
+                strings.Add(card.ValueLabel);
+
+            if (this.Count > 0)
+                strings.Add(" ");
+
+            return strings.ToArray();
+        }
+
+
         public CardSuit Suit { get; }
 
 

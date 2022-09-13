@@ -9,29 +9,32 @@ namespace GR44_W1_Exercise1to28.CardClasses
     internal class Card
     {
 
-        public Card(int CardID)
+        public Card(int cardIndex)
         {
-            if (CardID < 1)
+            Index = cardIndex - 1;
+            if (Index % 13 == 0) Index+= 13;
+
+            if (cardIndex < 1)
                 throw new ArgumentException("CardID too low");
-            else if (CardID <= 13)
+            else if (cardIndex <= 13)
             {
                 Suit = CardSuit.Clubs;
-                Value = CardID;
+                Value = cardIndex;
             }
-            else if (CardID <= 26)
+            else if (cardIndex <= 26)
             {
                 Suit = CardSuit.Diamonds;
-                Value = CardID - 13;
+                Value = cardIndex - 13;
             }
-            else if (CardID <= 39)
+            else if (cardIndex <= 39)
             {
                 Suit = CardSuit.Harts;
-                Value = CardID - 26;
+                Value = cardIndex - 26;
             }
-            else if (CardID <= 52)
+            else if (cardIndex <= 52)
             {
                 Suit = CardSuit.Spades;
-                Value = CardID - 39;
+                Value = cardIndex - 39;
             }
             else
                 throw new ArgumentException("CardID too high");
@@ -46,12 +49,18 @@ namespace GR44_W1_Exercise1to28.CardClasses
         }
 
         public string ID { get; }
+        public int Index { get; }
 
         public int HP { get; } = 0;
 
         public int Value { get; }
 
-        public string ShortName
+        public string ShortLabel
+        {
+            get { return SuitLabel + ValueLabel; }
+        }
+
+        public string SuitLabel
         {
             get
             {
@@ -62,8 +71,14 @@ namespace GR44_W1_Exercise1to28.CardClasses
                     CardSuit.Diamonds => "♦",
                     CardSuit.Clubs => "♣",
                     _ => throw new Exception("2938745628973")
-                } +
-                Value switch
+                };
+            }
+        }
+        public string ValueLabel
+        {
+            get
+            {
+                return Value switch
                 {
                     2 => "2",
                     3 => "3",
@@ -73,7 +88,7 @@ namespace GR44_W1_Exercise1to28.CardClasses
                     7 => "7",
                     8 => "8",
                     9 => "9",
-                    10 => "10",
+                    10 => "T",
                     11 => "J",
                     12 => "Q",
                     13 => "K",

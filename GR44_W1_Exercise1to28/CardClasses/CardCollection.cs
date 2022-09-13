@@ -30,9 +30,27 @@ namespace GR44_W1_Exercise1to28.CardClasses
         {
             List<string> strings = new List<string>();
             foreach (Card card in this)
-                strings.Add(card.ShortName);
+                strings.Add(card.ShortLabel);
             return strings.ToArray();
         }
 
+        void testsort()
+        {
+            List<Card>? list = base.Items as List<Card>;
+
+
+        }
+
+        public void Sort()
+        {
+            List<Card>? list = base.Items as List<Card>;
+            if (list != null)
+            {
+                list.Sort(delegate (Card a, Card b)
+                {
+                    return a.Index.CompareTo(b.Index);
+                });
+            }
+        }
     }
 }

@@ -87,6 +87,16 @@ namespace GR44_W1_Exercise1to28.CardClasses
             }
         }
 
+        public new string[] CardShortNames()
+        {
+            List<string> strings = new List<string>();
+            strings.AddRange(Spades.CardShortNames());
+            strings.AddRange(Harts.CardShortNames());
+            strings.AddRange(Diamonds.CardShortNames());
+            strings.AddRange(Clubs.CardShortNames());
+            return strings.ToArray();
+        }
+
         private SuitCollection GetSuit(CardSuit suit)
         {
             SortedDictionary<int, Card> sorted = new();

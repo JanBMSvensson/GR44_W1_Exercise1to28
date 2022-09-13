@@ -9,10 +9,10 @@ namespace GR44_W1_Exercise1to28.CardClasses
     internal class Hands
     {
 
-        Hand North { get; } = new Hand(CardinalDirection.North);
-        Hand South { get; } = new Hand(CardinalDirection.South);
-        Hand East { get; } = new Hand(CardinalDirection.East);
-        Hand West { get; } = new Hand(CardinalDirection.West);
+        public Hand North { get; } = new Hand(CardinalDirection.North);
+        public Hand South { get; } = new Hand(CardinalDirection.South);
+        public Hand East { get; } = new Hand(CardinalDirection.East);
+        public Hand West { get; } = new Hand(CardinalDirection.West);
 
         public Hand Hand(CardinalDirection direction)
         {
